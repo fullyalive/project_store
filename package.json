@@ -1,0 +1,18 @@
+{
+  "name": "project_store",
+  "version": "1.0.0",
+  "description": "eCommerce PWA Built with NextJS and GraphCMS",
+  "repository": "https://github.com/fullyalive/project_store",
+  "author": "fullyalive <wogud1202@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^7.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
