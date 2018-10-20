@@ -1,5 +1,5 @@
 import Head from "next/head";
-import withLayout from "../components/withLayout";
+import withLayout from "../lib/withLayout";
 
 const About = () => (
   <div>
@@ -7,6 +7,7 @@ const About = () => (
       <title>About | Fullyalive Store</title>
     </Head>
     <h1>About page</h1>
+    <p>Lorem Ipsum</p>
   </div>
 );
 
