@@ -10,9 +10,9 @@ app
   .then(() => {
     const server = express();
 
-    server.get("/post/:title", (req, res) => {
-      const actualPage = "/post";
-      const queryParams = { title: req.params.title }; // queryParameter는 같아야 한다. 13 title과  15 title 이 두개가 맞아야 됨
+    server.get("/movie/:id", (req, res) => {
+      const actualPage = "/movie";
+      const queryParams = { id: req.params.id }; // queryParameter는 같아야 한다. 13 title과  15 title 이 두개가 맞아야 됨
       app.render(req, res, actualPage, queryParams);
     }); // router masking으로 사용자에게 보여지는 url이 그대로 서버에 요청될때, 보여주는 페이지를 /post가 되도록
 
