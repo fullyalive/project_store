@@ -6,6 +6,7 @@
   "author": "fullyalive <wogud1202@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "antd": "^3.13.6",
     "apollo-boost": "^0.1.28",
     "express": "^4.16.4",
     "graphql": "^14.1.1",
