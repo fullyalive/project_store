@@ -1,8 +1,8 @@
 const express = require("express");
 const next = require("next");
 
-const dev = process.env.Node_ENV !== "production";
-const app = next({ dev });
+const dev = process.env.Node_ENV !== "production"; // NODE_ENV가 dev모드 일 때
+const app = next({ dev }); // dev 모드인지 확인
 const handle = app.getRequestHandler(); // 우리의 모든 request를 처리할것
 
 app
@@ -22,10 +22,10 @@ app
 
     server.listen(3000, err => {
       if (err) throw err;
-      console.log("> Ready on http://localhost:3000");
+      console.log("✅ Ready on http://localhost:3000");
     });
   })
   .catch(ex => {
     console.log(ex.stack);
-    process.exit(1);
+    process.exit(1); // kill server
   });

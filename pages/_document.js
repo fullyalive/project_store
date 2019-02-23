@@ -11,7 +11,6 @@ export default class MyDocument extends Document {
         <Head>
           <title>fullyalive Store</title>
           <meta name="author" content={"fullaylive"} />
-          <link href="/static/styles.css" rel={"stylesheet"} />
         </Head>
         <body>
           <Main />
