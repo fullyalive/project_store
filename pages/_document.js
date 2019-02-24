@@ -9,13 +9,12 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>WildWater</title>
           <meta name="author" content={"fullaylive"} />
           <link
             href="//cdnjs.cloudflare.com/ajax/libs/antd/3.13.6/antd.min.css"
             rel="stylesheet"
           />
-          <style>{`body { background-color: #EFF2F5!important}`}</style>
+          <style>{`body { background-color: #FFFFFF!important}`}</style>
         </Head>
         <body>
           <Main />

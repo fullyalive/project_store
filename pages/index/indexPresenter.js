@@ -8,14 +8,15 @@ const { Content } = Layout;
 export default ({ data }) => (
   <>
     <Head>
-      <title>Home | WildWater</title>
+      <title>WildWater</title>
     </Head>
     <Header
       centerColumn={<h4>WildWater</h4>}
       rightColumn={<Button href="/cart" text="Cart" />}
       leftColumn={<Button href="/search" text="Search" />}
+      style={{ backgroundColor: "#ffffff" }}
     />
-    <Content style={{ padding: "0 50px" }}>
+    <Content style={{ padding: "0 50px", backgroundColor: "#ffffff" }}>
       <div
         style={{
           display: "grid",

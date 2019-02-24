@@ -1,5 +1,6 @@
 import { Layout } from "antd";
 import App, { Container } from "next/app";
+import Head from "next/head";
 import React from "react";
 import { ApolloProvider } from "react-apollo";
 import withApollo from "../lib/withApollo";
@@ -19,6 +20,9 @@ class MyApp extends App {
     return (
       <ApolloProvider client={apollo}>
         <Container>
+          <Head>
+            <title>WildWater</title>
+          </Head>
           <Layout>
             <Component {...pageProps} />
             <Footer>This is important</Footer>
