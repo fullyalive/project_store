@@ -14,7 +14,21 @@ export const resolvers = {
       const fragment = gql`
         ${PRODUCT_FRAGMENT}
       `;
-      const product = cache.readFragment({fragment, id})
+      const product = cache.readFragment({ fragment, id });
+      const cartQuery = gql`
+        {
+          cart @client {
+            id # cart에서 product를 지울 때 필요
+          }
+        }
+      `;
+      const { cart } = cache.readQuery({ query: cartQuery });
+      cache.writeData({
+          data: {
+             cart:  [...cart, product] // 넘겨줄 데이터는 [...cart]이전 Array에 product(새로 추가할 Product)
+          }
+      });
+      return null;
     }
   }
 };
