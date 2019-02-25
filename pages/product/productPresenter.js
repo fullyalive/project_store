@@ -21,8 +21,10 @@ export default ({ data, toggleCart }) => (
         <h3>{data.product.subtitle}</h3>
         <h4>{data.product.description}</h4>
         <AntButton type="primary" onClick={toggleCart}>
-          장바구니 담기(
-          {data.product.price}원)
+          {data.product.onCart
+            ? "장바구니 빼기"
+            : `장바구니 담기(
+          ${data.product.price}원)`}
         </AntButton>
       </div>
       <style jsx>{`

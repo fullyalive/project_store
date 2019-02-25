@@ -5,6 +5,7 @@ export const PRODUCT_QUERY = gql`
   query productQuery($id: ID!) {
     product(where: { id: $id }) {
       ...ProductItems
+      onCart @client
     }
   }
   ${PRODUCT_FRAGMENT}
