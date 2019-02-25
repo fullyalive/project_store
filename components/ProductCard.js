@@ -8,7 +8,6 @@ export default ({ id, name, subtitle, photoUrl }) => (
       <a>
         <Card
           hoverable
-          actions={[<Icon type="eye" theme="outlined" />]}
           cover={<img alt={name} src={photoUrl} height={"200px"} />}
         >
           <Meta title={name} description={subtitle} />
