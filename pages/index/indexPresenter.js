@@ -9,12 +9,12 @@ const { Content } = Layout;
 export default ({ data }) => (
   <>
     <Head>
-      <title>WildWater</title>
+      <title>와일드워터</title>
     </Head>
     <Header
-      centerColumn={<h4>WildWater</h4>}
+      centerColumn={<h4>와일드워터</h4>}
       rightColumn={<CartButton />}
-      leftColumn={<Button href="/search" text="Search" />}
+      leftColumn={<Button href="/search" text="검색" />}
       style={{ backgroundColor: "#ffffff" }}
     />
     <Content style={{ padding: "0 50px", backgroundColor: "#ffffff" }}>

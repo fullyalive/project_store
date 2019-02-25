@@ -21,7 +21,7 @@ class MyApp extends App {
       <ApolloProvider client={apollo}>
         <Container>
           <Head>
-            <title>WildWater</title>
+            <title>와일드워터</title>
           </Head>
           <Layout>
             <Component {...pageProps} />

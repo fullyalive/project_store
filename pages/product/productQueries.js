@@ -1,5 +1,5 @@
 import { gql } from "apollo-boost";
-import { PRODUCT_FRAGMENT } from "../../fragment";
+import { PRODUCT_FRAGMENT } from "../../fragments";
 
 export const PRODUCT_QUERY = gql`
   query productQuery($id: ID!) {

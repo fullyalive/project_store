@@ -9,7 +9,7 @@ const { Content } = Layout;
 export default ({ data, updateSearchTerm, searchTerm }) => (
   <>
     <Head>
-      <title>검색 | WildWater</title>
+      <title>검색 | 와일드워터</title>
     </Head>
     <Header
       centerColumn={
