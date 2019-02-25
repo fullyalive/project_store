@@ -10,6 +10,12 @@ app
   .then(() => {
     const server = express();
 
+    server.get("/product/:id", (req, res) => {
+      const actualPage = "/product";
+      const queryParams = { id: req.params.id };
+      app.render(req, res, actualPage, queryParams);
+    });
+
     server.get("/category/:name", (req, res) => {
       const actualPage = "/category";
       const queryParams = { name: req.params.name }; // queryParameter는 같아야 한다. 13 title과  15 title 이 두개가 맞아야 됨

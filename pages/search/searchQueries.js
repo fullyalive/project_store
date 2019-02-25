@@ -1,4 +1,5 @@
 import { gql } from "apollo-boost";
+import { PRODUCT_FRAGMENT } from "../../fragment";
 
 export const SEARCH_QUERY = gql`
   query searchQuery(
@@ -12,13 +13,8 @@ export const SEARCH_QUERY = gql`
         ]
       }
     ) {
-      id
-      name
-      subtitle
-      price
-      photo {
-          url
-      }
+      ...ProductItems # fragment.js 에서 받아온다.
     }
   }
+  ${PRODUCT_FRAGMENT} # fragment.js 에서 받아온다.
 `;
