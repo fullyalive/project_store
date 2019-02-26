@@ -8,7 +8,7 @@ export default ({ id, name, subtitle, photoUrl }) => (
       <a>
         <Card
           hoverable
-          cover={<img alt={name} src={photoUrl} height={"200px"} />}
+          cover={<img alt={name} src={photoUrl}/>}
         >
           <Meta title={name} description={subtitle} />
         </Card>
