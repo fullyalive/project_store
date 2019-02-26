@@ -9,13 +9,14 @@ export default class MyDocument extends Document {
     return (
       <html lang="ko">
         <Head>
-          <meta name="author" content={"fullaylive"} />
+          <meta name="author" content={"와일드워터"} />
+          <link rel="manifest" href="/static/manifest.json" />
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.13.6/antd.min.css"
             rel="stylesheet"
           />
           <style>{`body { background-color: #FFFFFF!important}`}</style>
-          <meta name="theme-color" content="#7289da" /> {/* browser의 navigation bar 색깔 */}
+          <meta name="theme-color" content="#00a0ff" /> {/* browser의 navigation bar 색깔 */}
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta
             name="description"

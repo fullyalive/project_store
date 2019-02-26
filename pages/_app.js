@@ -21,7 +21,7 @@ class MyApp extends App {
     const { Component, pageProps, apollo } = this.props;
     return (
       <Container>
-        <NProgressStyles color="#7289da" spinner={true} />
+        <NProgressStyles color="#00a0ff" spinner={true} />
         <ApolloProvider client={apollo}>
           <Head>
             <title>와일드워터</title>
