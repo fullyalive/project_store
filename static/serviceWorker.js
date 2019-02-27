@@ -3,4 +3,24 @@
         service worker는 웹사이트가 아닌 navigator에 머무른다 
         오프라인 캐싱 : 해당 웹사이트로 오는 모든 경로들을 캐치 */
 
-setInterval(() => console.log("hi"), 5000);
+self.addEventListener("install", event => {
+  // (캐시를 저장하는 함수) serviceWorker가 등록되었을 때의 event, 등록되자마자 바로 작동
+  const offlinePage = new Request("/"); // 설치가 되면 serviceWorker가 등록된 페이지에 대해서 요청을 날린다.
+  event.waitUntil(
+    fetch(offlinePage).then(response => {
+      return caches.open("wildwater").then(cache => {
+        // 유저의 캐시를 가지고 wildwater라는 폴더를 연다.
+        return cache.put(offlinePage, response); // 캐시가 열리면 cache에 방금 얻은 offlinePage를 서버에서 받은 response와 함께 넣어준다
+      });
+    })
+  );
+});
+
+self.addEventListener("fetch", event => {
+  // 저장된 페이지 캐시를 받아 에러(오프라인)인 경우 출력해주는 함수
+  event.respondWith(
+    fetch(event.request).catch(error => {
+      return caches.open("wildwater").then(cache => cache.match("/"));
+    })
+  );
+});
