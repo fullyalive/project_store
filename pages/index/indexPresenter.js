@@ -28,14 +28,16 @@ export default ({ data }) => (
       >
         {data &&
           data.categories &&
-          data.categories.map(category => (
-            <Button
-              key={category.id}
-              href={`/category?name=${category.name.toLowerCase()}`}
-              hrefAs={`/category/${category.name.toLowerCase()}`}
-              text={category.name}
-            />
-          ))}
+          data.categories.map(category => {
+            return (
+              <Button
+                key={category.id}
+                href={`/category?name=${category.name.toLowerCase()}`}
+                hrefAs={`/category/${category.name.toLowerCase()}`}
+                text={category.name}
+              />
+            );
+          })}
       </div>
       <div style={{ marginTop: "50px" }}>
         {data && data.onSale && data.onSale.length !== 0 && <h2>On Sale</h2>}

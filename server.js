@@ -1,6 +1,6 @@
 const express = require("express");
 const next = require("next");
-
+const { resolve } = require("path"); // NodeJS path 모듈에서 resolve를 가지고 온다.
 const dev = process.env.Node_ENV !== "production"; // NODE_ENV가 dev모드 일 때
 const app = next({ dev }); // dev 모드인지 확인
 const handle = app.getRequestHandler(); // 우리의 모든 request를 처리할것
@@ -9,6 +9,10 @@ app
   .prepare()
   .then(() => {
     const server = express();
+
+    server.get("/sw.js", (req, res) => {
+      app.serveStatic(req, res, resolve("./static/serviceWorker.js"));
+    });
 
     server.get("/product/:id", (req, res) => {
       const actualPage = "/product";

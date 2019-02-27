@@ -17,6 +17,17 @@ class MyApp extends App {
     }
     return { pageProps };
   }
+
+  componentDidMount() {
+    // window(browser)에 serviceWorker가 존재하는지 확인하고 설치
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then(result => console.log("ServiceWorker Registered: ", result))
+        .catch(error => console.log("Can't register ServiceWorker: ", error));
+    }
+  }
+
   render() {
     const { Component, pageProps, apollo } = this.props;
     return (
