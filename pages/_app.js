@@ -6,6 +6,7 @@ import { ApolloProvider } from "react-apollo";
 import withApollo from "../lib/withApollo";
 import withNProgress from "next-nprogress";
 import NProgressStyles from "next-nprogress/styles";
+import convertDataURIToBinary from "../lib/base64";
 const { Footer } = Layout;
 
 class MyApp extends App {
@@ -20,11 +21,30 @@ class MyApp extends App {
 
   componentDidMount() {
     // window(browser)에 serviceWorker가 존재하는지 확인하고 설치
-    if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator && "PushManager" in window) {
       navigator.serviceWorker
         .register("/sw.js")
-        .then(result => console.log("ServiceWorker Registered: ", result))
-        .catch(error => console.log("Can't register ServiceWorker: ", error));
+        .then(swReg => {
+          console.log("SW Registered: ", swReg);
+          // 알림 권한 요청
+          // wildwater 페이지와 serviceWorker를 구글 API와 연동하면 구글 API에서 URL을 준다.
+          // 그러면 우리는 그 URL로 메세지를 보내면 되는 것. 그 URL이 웹사이트랑 serviceWorker랑 연결될 것
+          Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+              swReg.pushManager
+                .subscribe({
+                  userVisibleOnly: true,
+                  applicationServerKey: convertDataURIToBinary(
+                    "BMQl6dWfLFq-QWi4XR1SAWSzBSMRSenCGO7ktFoazGf7umgwPcvnp_r7xmJyBKa_0av4reD1EJCVCyPu4qu2X80"
+                  )
+                })
+                .then(pushSubscriptionObject => {
+                  console.log(pushSubscriptionObject);
+                });
+            }
+          });
+        })
+        .catch(error => console.log("Can't register SW: ", error));
     }
   }
 
