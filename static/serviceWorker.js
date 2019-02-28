@@ -24,7 +24,8 @@ self.addEventListener("push", event => {
   console.log(event);
   const title = "와일드워터";
   const options = {
-    body: event.data.text()
+    body: event.data.text(),
+    icon: "./static/192x192.png"
   };
   event.waitUntil(self.registration.showNotification(title, options));
 });
