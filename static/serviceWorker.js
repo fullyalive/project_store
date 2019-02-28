@@ -20,6 +20,15 @@ self.addEventListener("fetch", event => {
   );
 });
 
+self.addEventListener("push", event => {
+  console.log(event);
+  const title = "와일드워터";
+  const options = {
+    body: event.data.text()
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
 /* serviceoWorker는 웹 사이트가 작동 중이 아니더라도 유저의 컴퓨터에서 동작하는 자바스크립트 파일
         만약 serviceoWorker가 connection에서 문제를 발견하거나 웹사이트가 오프라인이라면 유저에게 오프라인 버전을 보여주는 것
         service worker는 웹사이트가 아닌 navigator에 머무른다

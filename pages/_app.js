@@ -29,18 +29,24 @@ class MyApp extends App {
           // 알림 권한 요청
           // wildwater 페이지와 serviceWorker를 구글 API와 연동하면 구글 API에서 URL을 준다.
           // 그러면 우리는 그 URL로 메세지를 보내면 되는 것. 그 URL이 웹사이트랑 serviceWorker랑 연결될 것
-          Notification.requestPermission().then(permission => {
-            if (permission === "granted") {
-              swReg.pushManager
-                .subscribe({
-                  userVisibleOnly: true,
-                  applicationServerKey: convertDataURIToBinary(
-                    "BMQl6dWfLFq-QWi4XR1SAWSzBSMRSenCGO7ktFoazGf7umgwPcvnp_r7xmJyBKa_0av4reD1EJCVCyPu4qu2X80"
-                  )
-                })
-                .then(pushSubscriptionObject => {
-                  console.log(pushSubscriptionObject);
-                });
+          swReg.pushManager.getSubscription().then(subscription => {
+            if (subscription === null) {
+              Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                  swReg.pushManager
+                    .subscribe({
+                      userVisibleOnly: true,
+                      applicationServerKey: convertDataURIToBinary(
+                        "BKm_21aeyYVH-HplWQC9ztuPMHQXPNuCmX-XnGw5iHUoZm-TiA9Z02L1xsN67ctTxqDWZcfEALX5PPp5arnfwho"
+                      )
+                    })
+                    .then(pushSubscriptionObject => {
+                      console.log(pushSubscriptionObject);
+                    });
+                }
+              });
+            } else {
+              console.log(subscription);
             }
           });
         })
