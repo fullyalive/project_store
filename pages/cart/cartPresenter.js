@@ -6,7 +6,7 @@ import ProductCard from "../../components/ProductCard";
 
 const reducerFn = (price, product) => price + product.price;
 
-export default ({ data }) => (
+export default ({ data, onPay }) => (
   <>
     <Head>
       <title>장바구니 | 와일드워터</title>
@@ -42,8 +42,8 @@ export default ({ data }) => (
         ))}
     </div>
     <div style={{ padding: "0px 50px", backgroundColor: "#ffffff" }}>
-      <h3>총 가격: {data && data.cart && data.cart.reduce(reducerFn, 0)}</h3>
-      <AntButton>Check out</AntButton>
+      <h3>총 가격: {data && data.cart && data.cart.reduce(reducerFn, 0)} 원</h3>
+      <AntButton onClick={onPay}>결제하기</AntButton>
     </div>
   </>
 );
